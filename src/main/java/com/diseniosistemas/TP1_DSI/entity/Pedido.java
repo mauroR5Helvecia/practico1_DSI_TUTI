@@ -12,7 +12,50 @@ public class Pedido {
 
     private List<Producto> misProductosPedidos= new ArrayList<>();
 
-    private Usuario usuarioQueHaceElPedido;
+    private Integer usuarioDni;
 
 
+    public Pedido(){
+
+    }
+
+    public Pedido(Long idPedido, Date fechaPedido, List<Producto> misProductosPedidos, Integer usuarioDni) {
+        this.idPedido = idPedido;
+        this.fechaPedido = fechaPedido;
+        this.misProductosPedidos = misProductosPedidos;
+        this.usuarioDni = usuarioDni;
+    }
+
+
+    public Long getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(Long idPedido) {
+        this.idPedido = idPedido;
+    }
+
+    public Date getFechaPedido() {
+        return fechaPedido;
+    }
+
+    public void setFechaPedido(Date fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
+
+    public List<Producto> getMisProductosPedidos() {
+        return misProductosPedidos;
+    }
+
+    public void setMisProductosPedidos(List<Producto> misProductosPedidos) {
+        this.misProductosPedidos = misProductosPedidos;
+    }
+
+    public Integer getUsuarioDni() {
+        return usuarioDni;
+    }
+
+    public void setUsuarioDni(Integer usuarioDni) {
+        this.usuarioDni = usuarioDni;
+    }
 }
