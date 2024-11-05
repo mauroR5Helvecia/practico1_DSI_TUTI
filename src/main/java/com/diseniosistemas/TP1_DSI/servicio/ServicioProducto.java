@@ -1,7 +1,7 @@
 package com.diseniosistemas.TP1_DSI.servicio;
 
 import com.diseniosistemas.TP1_DSI.entity.Producto;
-import com.diseniosistemas.TP1_DSI.repository.ProductoRepositoryImplement;
+import com.diseniosistemas.TP1_DSI.repository.implement.ProductoRepositoryImplement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

@@ -13,4 +13,7 @@ public interface ProductoRepositoryInterfaz {
     List<Producto> findAll();
 
     Producto findByCodigo(String codigo);
+
+
+
 }

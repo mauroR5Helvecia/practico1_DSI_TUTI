@@ -1,6 +1,7 @@
-package com.diseniosistemas.TP1_DSI.repository;
+package com.diseniosistemas.TP1_DSI.repository.implement;
 
 import com.diseniosistemas.TP1_DSI.entity.Producto;
+import com.diseniosistemas.TP1_DSI.repository.ProductoRepositoryInterfaz;
 import com.diseniosistemas.TP1_DSI.util.DatabaseUtil;
 import org.springframework.stereotype.Repository;
 import java.sql.Connection;

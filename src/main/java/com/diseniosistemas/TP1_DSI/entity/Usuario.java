@@ -2,9 +2,11 @@ package com.diseniosistemas.TP1_DSI.entity;
 
 import com.diseniosistemas.TP1_DSI.util.Rol;
 
+import java.util.List;
+
 public class Usuario {
 
-    private String idUsuario;
+    private Integer dni;
 
     private String nombreUsuario;
 
@@ -12,23 +14,35 @@ public class Usuario {
 
     private Rol rol;
 
+    private List<Pedido> misListaDePedidos;
+
+
     public Usuario(){
 
     }
 
-    public Usuario(String idUsuario, String nombreUsuario, String contrasenia, Rol rol) {
-        this.idUsuario = idUsuario;
+    public Usuario(Integer dni, String nombreUsuario, String contrasenia, Rol rol, List<Pedido> misListaDePedidos) {
+        this.dni = dni;
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
         this.rol = rol;
+        this.misListaDePedidos= misListaDePedidos;
     }
 
-    public String getIdUsuario() {
-        return idUsuario;
+    public List<Pedido> getMisListaDePedidos() {
+        return misListaDePedidos;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setMisListaDePedidos(List<Pedido> misListaDePedidos) {
+        this.misListaDePedidos = misListaDePedidos;
+    }
+
+    public Integer getDni() {
+        return dni;
+    }
+
+    public void setDni(Integer dni) {
+        this.dni = dni;
     }
 
     public String getNombreUsuario() {
