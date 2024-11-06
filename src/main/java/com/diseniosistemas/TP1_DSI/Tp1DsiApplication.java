@@ -1,5 +1,6 @@
 package com.diseniosistemas.TP1_DSI;
 import com.diseniosistemas.TP1_DSI.controller.ProductoController;
+import com.diseniosistemas.TP1_DSI.controller.UsuarioController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,12 @@ import java.util.Scanner;
 public class Tp1DsiApplication implements CommandLineRunner {
 
 	private final ProductoController productoController;
+	private final UsuarioController usuarioController;
 
 	@Autowired
-	public Tp1DsiApplication(ProductoController productoController) {
+	public Tp1DsiApplication(ProductoController productoController, UsuarioController usuarioController) {
 		this.productoController = productoController;
+		this.usuarioController = usuarioController;
 	}
 
 	public static void main(String[] args) {
@@ -29,30 +32,35 @@ public class Tp1DsiApplication implements CommandLineRunner {
 		boolean salir = false;
 
 		while (!salir) {
-			System.out.println("\n--- Aplicacion de solicitud a viajante---");
-			System.out.println("1. Registrarme");
-			System.out.println("2. Iniciar Sesion");
-			System.out.println("3. Ver administracion de productos");
-			System.out.println("4. Adquirir Productos");
-			System.out.println("5. Mis Productos Solicitados");
-			System.out.println("6. Salir");
-			System.out.print("Seleccione una opción: ");
+			try {
+				System.out.println("\n--- Aplicacion de solicitud a viajante---");
+				System.out.println("1. Registrarme");
+				System.out.println("2. Iniciar Sesion");
+				System.out.println("3. Ver administracion de productos");
+				System.out.println("4. Adquirir Productos");
+				System.out.println("5. Mis Productos Solicitados");
+				System.out.println("6. Salir");
+				System.out.print("Seleccione una opción: ");
 
-			int opcion1 = scanner.nextInt();
-			scanner.nextLine(); // Consumir la nueva línea
+				int opcion1 = scanner.nextInt();
+				scanner.nextLine(); // Consumir la nueva línea
 
-			switch (opcion1) {
-				case 1 -> System.out.println("Todavia no hay nada 2");
-				case 2 -> System.out.println("Todavia no hay nada 3");
-				case 3 -> productoController.mostrarMenu();
-				case 4 -> System.out.println("Todavia no hay nada 4");
-				case 5 -> System.out.println("Todavia no hay nada 5");
-				case 6 -> {
-					System.out.println("Saliendo de la aplicación.");
-					salir = true;
-					System.exit(0);
+				switch (opcion1) {
+					case 1 -> usuarioController.registrarUsuario();
+					case 2 -> usuarioController.iniciarSesion();
+					case 3 -> productoController.mostrarMenu();
+					case 4 -> System.out.println("Todavía no hay nada en esta opción.");
+					case 5 -> System.out.println("Todavía no hay nada en esta opción.");
+					case 6 -> {
+						System.out.println("Saliendo de la aplicación.");
+						salir = true;
+						scanner.close();
+					}
+					default -> System.out.println("Opción no válida. Intente de nuevo.");
 				}
-				default -> System.out.println("Opción no válida. Intente de nuevo.");
+			} catch (Exception e) {
+				System.out.println("Entrada no válida. Por favor, ingrese un número.");
+				scanner.nextLine(); // Limpiar la entrada incorrecta
 			}
 		}
 		scanner.close();

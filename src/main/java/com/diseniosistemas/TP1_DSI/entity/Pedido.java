@@ -1,31 +1,24 @@
 package com.diseniosistemas.TP1_DSI.entity;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Pedido {
 
     private Long idPedido;
-
     private Date fechaPedido;
-
-    private List<Producto> misProductosPedidos= new ArrayList<>();
-
+    private Map<Producto, Integer> misProductosPedidos;
     private Integer usuarioDni;
 
-
-    public Pedido(){
-
+    public Pedido() {
+        this.misProductosPedidos = new HashMap<>();
     }
 
-    public Pedido(Long idPedido, Date fechaPedido, List<Producto> misProductosPedidos, Integer usuarioDni) {
+    public Pedido(Long idPedido, Date fechaPedido, Map<Producto, Integer> misProductosPedidos, Integer usuarioDni) {
         this.idPedido = idPedido;
         this.fechaPedido = fechaPedido;
         this.misProductosPedidos = misProductosPedidos;
         this.usuarioDni = usuarioDni;
     }
-
 
     public Long getIdPedido() {
         return idPedido;
@@ -43,11 +36,11 @@ public class Pedido {
         this.fechaPedido = fechaPedido;
     }
 
-    public List<Producto> getMisProductosPedidos() {
+    public Map<Producto, Integer> getMisProductosPedidos() {
         return misProductosPedidos;
     }
 
-    public void setMisProductosPedidos(List<Producto> misProductosPedidos) {
+    public void setMisProductosPedidos(Map<Producto, Integer> misProductosPedidos) {
         this.misProductosPedidos = misProductosPedidos;
     }
 
@@ -59,3 +52,4 @@ public class Pedido {
         this.usuarioDni = usuarioDni;
     }
 }
+
